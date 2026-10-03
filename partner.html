@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>提携先 売上登録｜クリーニングSUD</title>
+<style>
+  :root { --brand: #2F5D50; --bg: #F3F6F5; --card: #fff; --text: #1d2731; --muted: #5b6b79; --line: #d6dfdc; --error: #c62828; --ok: #2e7d32; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif; line-height: 1.7; font-size: 16px; }
+  header { background: var(--brand); color: #fff; padding: 24px 16px; text-align: center; }
+  header h1 { margin: 0 0 4px; font-size: 22px; }
+  header p { margin: 0; font-size: 14px; opacity: .9; }
+  main { max-width: 640px; margin: 0 auto; padding: 16px; }
+  .card { background: var(--card); border-radius: 12px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+  .field { margin-bottom: 16px; }
+  label { display: block; font-weight: bold; margin-bottom: 6px; }
+  .req { background: var(--error); color: #fff; font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 2px; }
+  .opt { background: #9aa7b2; color: #fff; font-size: 11px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 2px; }
+  .hint { font-size: 12px; color: var(--muted); font-weight: normal; }
+  input, select, textarea { width: 100%; padding: 11px 12px; font-size: 16px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--text); }
+  textarea { min-height: 90px; resize: vertical; }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--brand); border-color: var(--brand); }
+  .invalid { border-color: var(--error); }
+  .err { color: var(--error); font-size: 13px; margin-top: 4px; display: none; }
+  .invalid ~ .err { display: block; }
+  .submit { width: 100%; padding: 15px; font-size: 17px; font-weight: bold; color: #fff; background: var(--brand); border: 0; border-radius: 999px; cursor: pointer; }
+  .submit:disabled { opacity: .6; cursor: progress; }
+  .alert { padding: 12px 14px; border-radius: 8px; margin-bottom: 12px; display: none; }
+  .alert.error { display: block; background: #fdecea; color: var(--error); }
+  .alert.ok { display: block; background: #e8f5e9; color: var(--ok); }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 420px) { .two { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>提携先 売上登録フォーム</h1>
+  <p>クリーニングSUDとの紹介・作業依頼の案件を登録してください。登録内容は確認メールでお送りします。</p>
+</header>
+<main>
+  <form class="card" id="form" novalidate>
+    <div class="alert" id="alert" role="alert"></div>
+
+    <div class="two">
+      <div class="field">
+        <label for="code">提携先コード<span class="req">必須</span></label>
+        <input type="text" id="code" autocomplete="off" required maxlength="40">
+        <div class="err">提携先コードを入力してください。</div>
+      </div>
+      <div class="field">
+        <label for="registrant">登録者名<span class="req">必須</span></label>
+        <input type="text" id="registrant" autocomplete="name" required maxlength="50">
+        <div class="err">登録者名を入力してください。</div>
+      </div>
+    </div>
+    <p class="hint" style="margin-top:-8px">提携先コードは、次回から入力しなくて済むようにこの端末に保存されます。</p>
+
+    <div class="field">
+      <label for="kind">区分<span class="req">必須</span></label>
+      <select id="kind" required>
+        <option value="">選択してください</option>
+        <option>提携先→SUD(紹介・作業依頼)</option>
+        <option>SUD→提携先(紹介・作業依頼)</option>
+      </select>
+      <div class="err">区分を選択してください。</div>
+    </div>
+    <div class="two">
+      <div class="field">
+        <label for="workDate">作業日<span class="req">必須</span></label>
+        <input type="date" id="workDate" required>
+        <div class="err">作業日を選択してください。</div>
+      </div>
+      <div class="field">
+        <label for="amount">売上金額(税込・円)<span class="req">必須</span></label>
+        <input type="text" id="amount" inputmode="numeric" placeholder="15000" required maxlength="10">
+        <div class="err">売上金額を数字で入力してください。</div>
+      </div>
+    </div>
+    <div class="field">
+      <label for="caseName">顧客名・案件名<span class="req">必須</span></label>
+      <input type="text" id="caseName" required maxlength="100" placeholder="山田様 エアコン2台">
+      <div class="err">顧客名・案件名を入力してください。</div>
+    </div>
+    <div class="field">
+      <label for="area">エリア<span class="opt">任意</span></label>
+      <input type="text" id="area" maxlength="50" placeholder="大阪市北区">
+    </div>
+    <div class="field">
+      <label for="content">作業内容<span class="req">必須</span></label>
+      <input type="text" id="content" required maxlength="200" placeholder="エアコンクリーニング(お掃除機能付き1台含む)">
+      <div class="err">作業内容を入力してください。</div>
+    </div>
+    <div class="field">
+      <label for="note">備考<span class="opt">任意</span></label>
+      <textarea id="note" maxlength="1000"></textarea>
+    </div>
+    <div class="hp" aria-hidden="true">
+      <label for="website">このフィールドは空のままにしてください</label>
+      <input type="text" id="website" tabindex="-1" autocomplete="off">
+    </div>
+    <button type="submit" class="submit" id="submit">登録する</button>
+  </form>
+</main>
+<script>
+// ▼ 予約フォーム(index.html)と同じGASのウェブアプリURLを貼り付けてください
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzHWiQ7Rt2zm2vBiqSSSy8732O6uX9q9FFTNruQUS7Bj2S3Swv38mHCOStrqwc46Fuk/exec';
+
+const $ = id => document.getElementById(id);
+try { $('code').value = localStorage.getItem('sudPartnerCode') || ''; $('registrant').value = localStorage.getItem('sudPartnerName') || ''; } catch (e) {}
+
+const toNumber = s => s.replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/[,，円¥\s]/g, '');
+
+document.querySelectorAll('input, select, textarea').forEach(x => x.addEventListener('input', () => x.classList.remove('invalid')));
+
+$('form').addEventListener('submit', async e => {
+  e.preventDefault();
+  $('alert').className = 'alert';
+  let first = null;
+  const mark = (id, bad) => { $(id).classList.toggle('invalid', bad); if (bad && !first) first = $(id); };
+  ['code', 'registrant', 'kind', 'workDate', 'caseName', 'content'].forEach(id => mark(id, !$(id).value.trim()));
+  mark('amount', !/^\d+$/.test(toNumber($('amount').value)));
+  if (first) { first.focus(); return; }
+
+  const data = {
+    type: 'partner',
+    code: $('code').value.trim(), registrant: $('registrant').value, kind: $('kind').value,
+    workDate: $('workDate').value, amount: Number(toNumber($('amount').value)),
+    caseName: $('caseName').value, area: $('area').value, content: $('content').value,
+    note: $('note').value, website: $('website').value,
+  };
+  const btn = $('submit');
+  btn.disabled = true; btn.textContent = '送信中です…';
+  try {
+    const res = await fetch(GAS_URL, { method: 'POST', body: JSON.stringify(data) });
+    const json = await res.json();
+    if (!json.ok) throw new Error(json.error || '登録に失敗しました。');
+    try { localStorage.setItem('sudPartnerCode', data.code); localStorage.setItem('sudPartnerName', data.registrant); } catch (e) {}
+    ['kind', 'workDate', 'amount', 'caseName', 'area', 'content', 'note'].forEach(id => { $(id).value = ''; });
+    $('alert').textContent = `登録しました(登録ID: ${json.id})。続けて別の案件を登録できます。`;
+    $('alert').className = 'alert ok';
+  } catch (err) {
+    $('alert').textContent = err.message && err.message !== 'Failed to fetch' ? err.message : '通信に失敗しました。時間をおいて再度お試しください。';
+    $('alert').className = 'alert error';
+  } finally {
+    btn.disabled = false; btn.textContent = '登録する';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+</script>
+</body>
+</html>
