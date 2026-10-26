@@ -7,16 +7,15 @@
 <meta name="description" content="クリーニングSUDのエアコンクリーニング予約フォーム。台数とオプションを選ぶと概算金額がすぐにわかります。">
 <style>
   :root {
-    --brand: #2F86B8;
-    --brand-dark: #256E98;
-    --sky: #7CC4E8;
-    --sky-soft: #E3F3FB;
-    --accent: #F2A65A;
-    --bg: #F2F9FD;
+    --brand: #B8566B;
+    --brand-dark: #9E4459;
+    --rose: #E8A0AE;
+    --rose-soft: #FBE7EB;
+    --bg: #FDF5F6;
     --card: #FFFFFF;
     --text: #1d2731;
     --muted: #5b6b79;
-    --line: #CFE4F0;
+    --line: #F0D6DC;
     --error: #c62828;
     --ok: #2e7d32;
   }
@@ -26,24 +25,24 @@
     font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", Meiryo, sans-serif;
     line-height: 1.7; font-size: 16px;
   }
-  header { background: linear-gradient(180deg, var(--sky) 0%, #A9DAF2 100%); color: #173B55; padding: 32px 16px 28px; text-align: center; border-radius: 0 0 28px 28px; }
-  header .badge { display: inline-block; background: #fff; color: #B35F17; font-size: 13px; font-weight: bold; padding: 2px 12px; border-radius: 999px; }
+  header { background: linear-gradient(180deg, var(--rose) 0%, #F4C6CF 100%); color: #4A2530; padding: 32px 16px 28px; text-align: center; border-radius: 0 0 28px 28px; }
+  header .badge { display: inline-block; background: #fff; color: #A8475C; font-size: 13px; font-weight: bold; padding: 2px 12px; border-radius: 999px; }
   header h1 { margin: 10px 0 6px; font-size: 24px; }
   header p { margin: 0 auto; max-width: 560px; font-size: 14px; opacity: .92; }
   main { max-width: 680px; margin: 0 auto; padding: 16px; }
-  .card { background: var(--card); border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(47,134,184,.10); }
-  h2 { font-size: 18px; margin: 0 0 14px; padding-left: 10px; border-left: 5px solid var(--sky); }
+  .card { background: var(--card); border-radius: 16px; padding: 20px 16px; margin-bottom: 16px; box-shadow: 0 2px 10px rgba(184,86,107,.10); }
+  h2 { font-size: 18px; margin: 0 0 14px; padding-left: 10px; border-left: 5px solid var(--rose); }
   .row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
   .row:last-child { border-bottom: 0; }
   .row .name { font-weight: bold; }
   .row .desc { font-size: 13px; color: var(--muted); }
   .stepper { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-  .stepper button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--sky); background: var(--sky-soft); color: var(--brand); font-size: 20px; cursor: pointer; }
+  .stepper button { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--rose); background: var(--rose-soft); color: var(--brand); font-size: 20px; cursor: pointer; }
   .stepper button:disabled { opacity: .35; cursor: default; }
   .stepper output { min-width: 28px; text-align: center; font-size: 18px; font-weight: bold; }
   .sub { font-size: 14px; color: var(--muted); margin: 16px 0 4px; }
-  .estimate { background: #FFF6E5; border: 2px solid var(--accent); border-radius: 16px; padding: 14px 16px; margin-top: 16px; text-align: center; }
-  .estimate .amount { font-size: 30px; font-weight: bold; color: #B35F17; }
+  .estimate { background: #FFF0F3; border: 2px solid var(--rose); border-radius: 16px; padding: 14px 16px; margin-top: 16px; text-align: center; }
+  .estimate .amount { font-size: 30px; font-weight: bold; color: #A8475C; }
   .estimate .note { font-size: 13px; color: var(--muted); }
   .field { margin-bottom: 16px; }
   .field > label, .field > .label { display: block; font-weight: bold; margin-bottom: 6px; }
